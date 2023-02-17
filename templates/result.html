@@ -4,11 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='app.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='app2.css') }}">
     <title>Document</title>
 </head>
 <body>
-    <h1>Result</h1>
-    <p>{{ result }}</p>
+    <div id="canvas">
+    </div>
+    <h1 class="title">당신이 매칭될 확률은,,,
+        {{ result }}</h1>
+    
+    
+    
+    
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="800">
+      <defs>
+         <filter id="goo-no-comp">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blur"></feGaussianBlur>
+          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo"></feColorMatrix>
+        </filter>
+        <filter id="goo">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blur"></feGaussianBlur>
+          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo"></feColorMatrix>
+          <feComposite in="SourceGraphic" in2="goo" operator="atop"></feComposite>
+        </filter>
+        
+      </defs>
+    </svg>
+    
 </body>
 </html>

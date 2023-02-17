@@ -23,7 +23,14 @@ def submit_form():
 def model_pred(f1, f2, f3, f4, f5):
     # 받은 데이터를 가지고 작업을 수행하는 파이썬 함수
     # 여기에서는 입력한 이름과 이메일을 합쳐서 반환하는 예제
-    return f"f1 = {f1}, f2 = {f2}, f3 = {f3}, f4 = {f4}, f5 = {f5}"
+    f1 = int(f1)
+    f2 = int(f2)
+    f3 = int(f3)
+    f4 = int(f4)
+    f5 = int(f5)
+    sum = f1 + f2 + f3 + f4 + f5
+    return  str(sum) + "%"
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port=8000, debug=True)
+    
