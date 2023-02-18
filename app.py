@@ -31,6 +31,12 @@ def model_pred(f1, f2, f3, f4, f5):
     sum = f1 + f2 + f3 + f4 + f5
     return  str(sum) + "%"
 
+# gender  attr_s  sinc_s  intel_s  fun_s  amb_s  attr_eval  sinc_eval  intel_eval  fun_eval  amb_eval  shar_eval  like_eval
+# tmp = [0] + [10] * 12
+# tmp = np.array(tmp).reshape(1, -1)
+# print(tmp)
+# print(best_model.predict(tmp))
+
 if __name__ == '__main__':
     app.run(port=8000, debug=True)
     
