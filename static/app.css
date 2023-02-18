@@ -145,5 +145,66 @@ body {
 	color: white;
 }
 
-
-
+/* fieldset animation */
+.slideIn {
+	-webkit-animation: slideIn 0.5s ease forwards;
+	animation: slideIn 0.5s ease forwards;
+  }
+  
+  .slideOut {
+	-webkit-animation: slideOut 0.5s ease forwards;
+	animation: slideOut 0.5s ease forwards;
+  }
+  
+  @-webkit-keyframes slideIn {
+	0% {
+	  opacity: 0;
+	  -webkit-transform: translateX(50%);
+	  transform: translateX(50%);
+	}
+	100% {
+	  opacity: 1;
+	  -webkit-transform: translateX(0);
+	  transform: translateX(0);
+	}
+  }
+  
+  @keyframes slideIn {
+	0% {
+	  opacity: 0;
+	  -webkit-transform: translateX(50%);
+	  transform: translateX(50%);
+	}
+	100% {
+	  opacity: 1;
+	  -webkit-transform: translateX(0);
+	  transform: translateX(0);
+	}
+  }
+  
+  @-webkit-keyframes slideOut {
+	0% {
+	  opacity: 1;
+	  -webkit-transform: translateX(0);
+	  transform: translateX(0);
+	}
+	100% {
+	  opacity: 0;
+	  -webkit-transform: translateX(-50%);
+	  transform: translateX(-50%);
+	}
+  }
+  
+  @keyframes slideOut {
+	0% {
+	  opacity: 1;
+	  -webkit-transform: translateX(0);
+	  transform: translateX(0);
+	}
+	100% {
+	  opacity: 0;
+	  -webkit-transform: translateX(-50%);
+	  transform: translateX(-50%);
+	}
+  }
+  
