@@ -18,7 +18,7 @@ body {
 }
 /*form styles*/
 #msform {
-	width: 400px;
+	width: 520px;
 	margin: 50px auto;
 	text-align: center;
 	position: relative;
@@ -45,12 +45,25 @@ body {
 	padding: 15px;
 	border: 1px solid #ccc;
 	border-radius: 3px;
-	margin-bottom: 10px;
+	margin-bottom: 10%;
 	width: 100%;
 	box-sizing: border-box;
 	font-family: montserrat;
 	color: #2C3E50;
 	font-size: 13px;
+}
+#msform input[type="radio"] {
+	display: inline;
+	width: 5%;
+	margin-right: 2%;
+	margin-top: 5%;
+	font-family: montserrat;
+	font-size: 13px;
+	margin-bottom: 10%;
+	}
+#msform div {
+	font-size: 20px;
+	margin-bottom: 1%;
 }
 /*buttons*/
 #msform .action-button {
@@ -132,5 +145,66 @@ body {
 	color: white;
 }
 
-
-
+/* fieldset animation */
+.slideIn {
+	-webkit-animation: slideIn 0.5s ease forwards;
+	animation: slideIn 0.5s ease forwards;
+  }
+  
+  .slideOut {
+	-webkit-animation: slideOut 0.5s ease forwards;
+	animation: slideOut 0.5s ease forwards;
+  }
+  
+  @-webkit-keyframes slideIn {
+	0% {
+	  opacity: 0;
+	  -webkit-transform: translateX(50%);
+	  transform: translateX(50%);
+	}
+	100% {
+	  opacity: 1;
+	  -webkit-transform: translateX(0);
+	  transform: translateX(0);
+	}
+  }
+  
+  @keyframes slideIn {
+	0% {
+	  opacity: 0;
+	  -webkit-transform: translateX(50%);
+	  transform: translateX(50%);
+	}
+	100% {
+	  opacity: 1;
+	  -webkit-transform: translateX(0);
+	  transform: translateX(0);
+	}
+  }
+  
+  @-webkit-keyframes slideOut {
+	0% {
+	  opacity: 1;
+	  -webkit-transform: translateX(0);
+	  transform: translateX(0);
+	}
+	100% {
+	  opacity: 0;
+	  -webkit-transform: translateX(-50%);
+	  transform: translateX(-50%);
+	}
+  }
+  
+  @keyframes slideOut {
+	0% {
+	  opacity: 1;
+	  -webkit-transform: translateX(0);
+	  transform: translateX(0);
+	}
+	100% {
+	  opacity: 0;
+	  -webkit-transform: translateX(-50%);
+	  transform: translateX(-50%);
+	}
+  }
+  

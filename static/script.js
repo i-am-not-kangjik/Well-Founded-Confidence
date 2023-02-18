@@ -1,23 +1,94 @@
-const nextButtons = document.querySelectorAll('.next');
-for (let i = 0; i < nextButtons.length; i++) {
-  nextButtons[i].addEventListener('click', function() {
-	const currentFieldset = this.parentElement;
-	const nextFieldset = currentFieldset.nextElementSibling;
-	if (nextFieldset !== null) {
-	  currentFieldset.style.display = 'none';
-	  nextFieldset.style.display = 'block';
+// fieldset 및 progressbar 요소 가져오기
+var form = document.getElementById("msform");
+var fieldsets = document.getElementsByTagName("fieldset");
+var progressBar = document.getElementById("progressbar");
+var progressList = progressBar.getElementsByTagName("li");
+
+// 현재 위치를 추적하기 위한 변수
+var current_fs, next_fs, previous_fs;
+var currentProgress, nextProgress, previousProgress;
+var currentIndex = 0;
+
+// 다음 단계로 이동하는 함수
+function next() {
+	current_fs = fieldsets[currentIndex];
+	next_fs = fieldsets[currentIndex + 1];
+
+	currentProgress = progressList[currentIndex];
+	nextProgress = progressList[currentIndex + 1];
+
+	// form 유효성 검사
+	if (currentIndex === 0 && !validateStep1()) {
+		return;
 	}
-  });
+
+	// 필드셋 전환
+	// 현재 필드셋 및 다음 필드셋에 애니메이션 클래스 추가
+	current_fs.classList.add('slideOut');
+	next_fs.classList.add('slideIn');
+
+	// 0.5초 후 애니메이션 클래스 제거
+	setTimeout(() => {
+		current_fs.style.display = 'none';
+		next_fs.style.display = 'block';
+		current_fs.classList.remove('slideOut');
+		next_fs.classList.remove('slideIn');
+	}, 500);
+
+	// progressbar 업데이트
+	nextProgress.classList.add("active");
+
+	// 현재 위치 업데이트
+	currentIndex++;
 }
 
-const previousButtons = document.querySelectorAll('.previous');
-for (let i = 0; i < previousButtons.length; i++) {
-  previousButtons[i].addEventListener('click', function() {
-	const currentFieldset = this.parentElement;
-	const previousFieldset = currentFieldset.previousElementSibling;
-	if (previousFieldset !== null) {
-	  currentFieldset.style.display = 'none';
-	  previousFieldset.style.display = 'block';
+// 이전 단계로 이동하는 함수
+function previous() {
+	current_fs = fieldsets[currentIndex];
+	previous_fs = fieldsets[currentIndex - 1];
+
+	currentProgress = progressList[currentIndex];
+	previousProgress = progressList[currentIndex - 1];
+
+	// 필드셋 전환
+	// 현재 필드셋 및 이전 필드셋에 애니메이션 클래스 추가
+	current_fs.classList.add('slideOut');
+	previous_fs.classList.add('slideIn');
+
+	// 0.5초 후 애니메이션 클래스 제거
+	setTimeout(() => {
+		current_fs.style.display = 'none';
+		previous_fs.style.display = 'block';
+		current_fs.classList.remove('slideOut');
+		previous_fs.classList.remove('slideIn');
+	}, 500);
+
+	// progressbar 업데이트
+	currentProgress.classList.remove("active");
+	previousProgress.classList.add("active");
+
+	// 현재 위치 업데이트
+	currentIndex--;
+}
+
+// STEP1 폼 유효성 검사 함수
+function validateStep1() {
+	var feature1 = form.querySelector('input[name="feature1"]:checked');
+	if (!feature1) {
+		alert("성별을 선택해주세요.");
+		return false;
 	}
-  });
+	return true;
+}
+
+// next 버튼 클릭 시 이벤트 리스너
+var nextButtons = document.querySelectorAll(".next");
+for (var i = 0; i < nextButtons.length; i++) {
+	nextButtons[i].addEventListener("click", next);
+}
+
+// previous 버튼 클릭 시 이벤트 리스너
+var previousButtons = document.querySelectorAll(".previous");
+for (var i = 0; i < previousButtons.length; i++) {
+	previousButtons[i].addEventListener("click", previous);
 }
