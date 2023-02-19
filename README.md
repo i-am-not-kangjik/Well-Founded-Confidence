@@ -1,4 +1,4 @@
-[![Video Label](https://imgur.com/OuhDkaT)](https://youtu.be/rt9s4h7VyUU)
+[![Video Label](https://i.imgur.com/flwaLyW.jpeg)](https://youtu.be/rt9s4h7VyUU)
 # Well-Founded-Confidence
 #### 자존감이 매칭 성공률에 미치는 영향
 
