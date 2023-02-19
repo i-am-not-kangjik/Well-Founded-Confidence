@@ -15,6 +15,8 @@
 `김강직`: 웹 페이지   
 `김민수`: 발표  
 `윤규헌`: 모델 성능 평가  
+### [Link To Notion](https://invincible-vibraphone-53e.notion.site/8173c93331c74ef2a8cdf1158cd14a61)   
+<br>
 
 ## Tech Stacks
 
